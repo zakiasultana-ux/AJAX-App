@@ -54,7 +54,7 @@
         </button>
       </model-viewer>
     </div>
-    <div class="loader-container hidden">
+    <div id="loader-container" class="hidden">
       <svg viewBox="0 0 57 60" xmlns="http://www.w3.org/2000/svg" stroke="#D0732CFF">
         <g fill="none" fill-rule="evenodd">
           <g transform="translate(1 1)" stroke-width="3">
@@ -74,10 +74,10 @@
         </g>
       </svg>
     </div>
-    <div class="col-span-full">
+    <div id="material" class="col-span-full">
       <h2>Materials</h2>
       <ul id="material-list">
-        <!-- Template will be copied here -->
+        
       </ul>
 
       <template id="material-template">
@@ -87,8 +87,11 @@
         </li>
       </template>
 
-      
-    
+    </div>
+    <div class="modal-overlay">
+      <div id="error-message" class="modal-content-box">
+        
+      </div>
     </div>
   </div>
   <!-- Loads <model-viewer> for browsers: -->

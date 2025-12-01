@@ -1,2 +1,18 @@
-@use 'fonts';
 
+$color-primary: #be6f1f;
+$color-text: #58381a;
+$color-text-light: #6b7280;
+$color-border: #e5e7eb;
+$color-bg: #f9fafb;
+$color-overlay: rgba(0, 0, 0, 0.6);
+
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$transition: 0.3s ease;
+$border-radius: 8px;
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
