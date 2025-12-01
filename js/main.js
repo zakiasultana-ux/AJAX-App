@@ -1,11 +1,15 @@
 (() => {
+
   //variables
+  
   const hotspots = document.querySelectorAll(".Hotspot");
   const materialTemplate = document.querySelector("#material-template");
   const materialList = document.querySelector("#material-list");
-  const loader = document.querySelector(".loader-container");
+  const loader = document.querySelector("#loader-container");
+  const ERROR_MESSAGE = "Your request tried to travel through the Neon Datastream… but halfway through, a tiny cyber-hamster powering our servers decided to take a snack break. At the same moment, a sparkly, hyper-energetic robot-cat chased a glowing data packet into a dark alley of the Grid, knocking three circuits off balance and causing a reality hiccup. Now, our systems are doing the digital equivalent of a facepalm. Please try again later, when the cyber-hamster is back on its wheel and the robot-cat has returned from its adventure!";
 
   //functions
+  
   function loadInfoBoxes() {
     fetch("https://swiftpixel.com/earbud/api/infoboxes")
       .then((response) => response.json())
@@ -28,13 +32,15 @@
       .catch((error) => {
         console.log(error);
 
+        const error_msg = document.querySelector('#error-message');
         const errorMessage = document.createElement("p");
-        errorMessage.textContent =
-          "Your request tried to travel through the Neon Datastream… but halfway through, a tiny cyber-hamster powering our servers decided to take a snack break. At the same moment, a sparkly, hyper-energetic robot-cat chased a glowing data packet into a dark alley of the Grid, knocking three circuits off balance and causing a reality hiccup. Now, our systems are doing the digital equivalent of a facepalm. Please try again later, when the cyber-hamster is back on its wheel and the robot-cat has returned from its adventure!";
+        errorMessage.textContent = ERROR_MESSAGE;
 
-        document.body.appendChild(errorMessage);
+        error_msg.appendChild(errorMessage);
+        errorMessage.classList.add('error-message');
       });
   }
+  
   loadInfoBoxes();
 
   function loadMaterialInfo() {
@@ -61,13 +67,17 @@
       .catch((error) => {
         console.log(error);
 
+        const error_msg = document.querySelector('#error-message');
+        const error_box = document.querySelector('.modal-overlay');
         const errorMessage = document.createElement("p");
-        errorMessage.textContent =
-          "Your request tried to travel through the Neon Datastream… but halfway through, a tiny cyber-hamster powering our servers decided to take a snack break. At the same moment, a sparkly, hyper-energetic robot-cat chased a glowing data packet into a dark alley of the Grid, knocking three circuits off balance and causing a reality hiccup. Now, our systems are doing the digital equivalent of a facepalm. Please try again later, when the cyber-hamster is back on its wheel and the robot-cat has returned from its adventure!";
+        errorMessage.textContent = ERROR_MESSAGE;
 
-        document.body.appendChild(errorMessage);
+        error_msg.appendChild(errorMessage);
+        errorMessage.classList.add('error-message');
+        error_box.classList.add('active');
       });
   }
+
   loadMaterialInfo();
 
   function showInfo() {
@@ -86,4 +96,5 @@
     hotspot.addEventListener("mouseenter", showInfo);
     hotspot.addEventListener("mouseleave", hideInfo);
   });
+
 })();
